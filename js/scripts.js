@@ -5,7 +5,11 @@ function Lengths(first, second, third) {
 }
 
 Lengths.prototype.allSides = function () {
-  if ((this.length1 === this.length2) && (this.length1 === this.length3)) {
+  if (
+    ((this.length1 + this.length2) <= this.length3) || ((this.length1 + this.length3) <= this.length2) || ((this.length3 + this.length2) <= this.length1)
+  ) {
+    return "not a triangle";
+  } else if ((this.length1 === this.length2) && (this.length1 === this.length3)) {
     return "equilateral";
   }
   else if ((this.length1 === this.length2) || (this.length1 === this.length3) || (this.length2 === this.length3)) {
